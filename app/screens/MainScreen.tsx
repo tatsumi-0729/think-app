@@ -1,18 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet,TextInput } from 'react-native'
+import { View, Text, StyleSheet,TextInput, Button } from 'react-native'
+import axios from "axios";
 
 const MainScreen = () => {
   const [text, setText] = useState("");
 
-  useEffect(() => {
-    console.info(text);
-  },[text])
+  const postAxios = async () => {
+    await axios
+    .post("http://localhost:8080/register", text)
+    .then(function (res) {
+      console.info(res.data);
+    })
+    .catch(function (error :any) {
+      console.info(error);
+    });
+  }
 
   return (
     <View style={styles.root}>
       <Text style={styles.question} >何について考える？</Text>
       <TextInput style={styles.input} onChangeText={setText}></TextInput>
-      {/* <Text>{text}</Text> */}
+      <Button
+          title = "send"
+          onPress={postAxios}
+          // ヘッダーの戻る「＜」を削除
+          // onPress={() => navigation.reset({
+          //   index: 0,
+          //   routes: [{ name: 'Main' }],
+          // })}
+        />
     </View>
   )
 }
