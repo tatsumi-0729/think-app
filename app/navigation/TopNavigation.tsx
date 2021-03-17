@@ -1,19 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import MainScreen from '../screens/MainScreen'
+import ThemeScreen from '../screens/ThemeScreen'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Stack = createStackNavigator()
 
 const UserStackNavigation = () => (
-  <Stack.Navigator initialRouteName="Main">
+  <Stack.Navigator initialRouteName="Theme">
     <Stack.Screen
-      name="Main"
-      component={MainScreen}
+      name="Theme"
+      component={ThemeScreen}
       options={{
-        headerTitle: 'ユーザー',
+        headerTitle: 'テーマ',
         headerBackTitleVisible: false,
       }}
     />

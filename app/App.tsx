@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native'
 import TopScreen from '../app/screens/TopScreen'
-import MainScreen from './screens/MainScreen'
+import ThemeScreen from './screens/ThemeScreen'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
@@ -17,7 +17,7 @@ const RootStack = () => (
         // headerBackTitleVisible: false,
       }}
     />
-    <Stack.Screen name="Main" component={MainScreen} />
+    <Stack.Screen name="Main" component={ThemeScreen} />
   </Stack.Navigator>
 )
 
